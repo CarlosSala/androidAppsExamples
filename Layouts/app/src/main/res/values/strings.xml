@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Layouts</string>
+    <string name="hidden">Hidden</string>
+    <string name="button">Button</string>
+    <string name="text">¡Hi I am luchito and I like the chupilca!.</string>
+    <string name="name">Name</string>
+    <string name="next">next</string>
+    <string name="todo">TODO</string>
+    <string name="back">back</string>
+
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+
+    <string name="subtract">-</string>
+    <string name="add">+</string>
+    <string name="multiplication">*</string>
+    <string name="division">/</string>
+    <string name="result">=</string>
+
+    <string name="reset">Restaurar Valores</string>
+    <string name="text_view">0</string>
+
+    <string name="description">Descripcion de fruta</string>
+
+    <string name="action_cancel">Cancel</string>
+    <string name="action_accept">Accept</string>
+
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_correo">Correo</string>
+
+
+    <string name="btn_n1">Botón1</string>
+    <string name="btn_n2">Botón2</string>
+    <string name="btn_n3">Botón3</string>
+    <string name="btn_n4">Botón4</string>
+    <string name="btn_n5">Botón5</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_back">Back</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="staticFragment">Welcome to StaticFragments</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+</resources>

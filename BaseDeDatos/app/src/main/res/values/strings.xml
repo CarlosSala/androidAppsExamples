@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BaseDeDatos</string>
+    <string name="id_client">id client</string>
+    <string name="cell_client">Client cellphone</string>
+    <string name="name_client">Client name</string>
+    <string name="button_register">Registration client</string>
+    <string name="button_search">Search client</string>
+    <string name="button_delete">Delete client</string>
+    <string name="button_modify">Update client</string>
+</resources>

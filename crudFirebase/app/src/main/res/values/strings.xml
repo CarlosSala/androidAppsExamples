@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">crudFirebase</string>
+    <string name="name">Name</string>
+    <string name="last_name">Surnames</string>
+    <string name="mail">Email</string>
+    <string name="password">Password</string>
+    <string name="list_of_people">Lists of People</string>
+</resources>

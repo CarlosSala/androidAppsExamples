@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1064861871128",
+    "firebase_url": "https://tenacious-ring-236815.firebaseio.com",
+    "project_id": "tenacious-ring-236815",
+    "storage_bucket": "tenacious-ring-236815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064861871128:android:45c36890e53541f3",
+        "android_client_info": {
+          "package_name": "com.example.lectorcodigodebarras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064861871128-nn2hr7m4n3vbl3ddj5gdv250ls6hs9ks.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lectorcodigodebarras",
+            "certificate_hash": "aacb174ef591eab72647deed22b2206bc2b79673"
+          }
+        },
+        {
+          "client_id": "1064861871128-h6okv2lhr8b8k49t2clp7djghjudvfth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEfs8HH0Ii1c3ez8TsAZNDLRoQMsWYGi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064861871128-h6okv2lhr8b8k49t2clp7djghjudvfth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

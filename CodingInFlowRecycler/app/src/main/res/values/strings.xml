@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CodingInFlowRecycler</string>
+    <string name="like">Like:</string>
+    <string name="creator_name">Creator Name</string>
+    <string name="back">back</string>
+    <string name="next">next</string>
+    <string name="id">Id</string>
+    <string name="title">Title</string>
+    <string name="body">body</string>
+    <string name="borrar">Borrar</string>
+    <string name="volver">Volver</string>
+    <string name="_11_01_2018">11/01/2018</string>
+    <string name="_80">80</string>
+</resources>

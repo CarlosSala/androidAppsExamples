@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RetrofitTutorial</string>
+    <string name="next">next</string>
+    <string name="back">back</string>
+</resources>
