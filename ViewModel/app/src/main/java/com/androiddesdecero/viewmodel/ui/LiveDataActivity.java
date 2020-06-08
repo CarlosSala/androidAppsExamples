@@ -69,6 +69,7 @@ public class LiveDataActivity extends AppCompatActivity {
             }
         };
 
+        // if there are changes in list, the listObserver is act
         liveDataUserViewModel.getUserList().observe(this, listObserver);
     }
 }

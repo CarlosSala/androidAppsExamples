@@ -17,6 +17,11 @@ public class LiveDataUserViewModel extends ViewModel {
     private MutableLiveData<List<User>> listMutableLiveData;
     private List<User> userList;
 
+    public void addUser(User user) {
+        userList.add(user);
+        listMutableLiveData.setValue(userList);
+    }
+
     // LiveData is read only
     public LiveData<List<User>> getUserList() {
         if (listMutableLiveData == null) {
@@ -26,8 +31,5 @@ public class LiveDataUserViewModel extends ViewModel {
         return listMutableLiveData;
     }
 
-    public void addUser(User user) {
-        userList.add(user);
-        listMutableLiveData.setValue(userList);
-    }
+
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     TextView tv1;
+    final Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +27,17 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(MainActivity.this, "Boton pulsado", Toast.LENGTH_SHORT).show();
-                miHilo();
+                // Toast.makeText(MainActivity.this, "Boton pulsado", Toast.LENGTH_SHORT).show();
+                myThread();
             }
         });
         // miHilo();
     }
 
-    final Handler mhandler = new Handler();
 
-    protected void miHilo() {
+    protected void myThread() {
 
-        Thread thread = new Thread() {
+        final Thread thread = new Thread() {
             public void run() {
                 try {
 
@@ -45,16 +45,16 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //tv1.setText("soy runOnUiThread");
-                           // Toast.makeText(MainActivity.this, "soy runOnUiThread", Toast.LENGTH_SHORT).show();
+
+                            // custom Toast
                             Toast toast = Toast.makeText(MainActivity.this, "Soy un hilo", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.TOP, 0, 400);
-
                             View view = toast.getView();
                             TextView view1 = view.findViewById(android.R.id.message);
                             view1.setTextColor(Color.WHITE);
                             view.setBackgroundResource(R.color.colorPrimaryDark);
                             toast.show();
+
                         }
                     });
 
@@ -64,23 +64,27 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                mhandler.post(ejecutarAccion);
+                // wait for Thread.sleep before to execute action
+                handler.post(executeAction);
             }
         };
         thread.start();
     }
 
-    private Runnable ejecutarAccion = new Runnable() {
+    private Runnable executeAction = new Runnable() {
+
         public void run() {
-            //    setContentView(R.layout.activity_main_thread);
+
+            // custom Toast
+            // setContentView(R.layout.activity_main_thread);
             Toast toast = Toast.makeText(MainActivity.this, "Soy un hilo", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 400);
-
             View view = toast.getView();
             TextView view1 = view.findViewById(android.R.id.message);
             view1.setTextColor(Color.WHITE);
             view.setBackgroundResource(R.color.colorAccent);
             toast.show();
+
         }
     };
 }

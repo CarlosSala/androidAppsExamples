@@ -119,6 +119,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
 
     }
 
+    // check when accept button is press
     private boolean ValidateName(String nombre) {
         Pattern patron = Pattern.compile("^[a-zA-Z ]+$");
         if (!patron.matcher(nombre).matches() || nombre.length() > 30) {
@@ -131,6 +132,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
         return true;
     }
 
+    // check when accept button is press
     private boolean ValidateCel(String telefono) {
         if (!Patterns.PHONE.matcher(telefono).matches()) {
             til_cel.setError("Teléfono inválido");
@@ -142,6 +144,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
         return true;
     }
 
+    // check character to character
     private boolean ValidateEmail(String correo) {
         if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
             til_email.setError("Correo electrónico inválido");
