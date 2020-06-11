@@ -11,4 +11,10 @@
     <string name="volver">Volver</string>
     <string name="_11_01_2018">11/01/2018</string>
     <string name="_80">80</string>
+    <string name="peso_inicial">PESO INICIAL</string>
+    <string name="_01_01_2017">01/01/2017</string>
+    <string name="_70kg">70Kg</string>
+    <string name="_7kg">+7Kg</string>
+    <string name="tu_objetivo_son_67_kg">Tu Objetivo son 67 Kg</string>
+    <string name="android">Android</string>
 </resources>

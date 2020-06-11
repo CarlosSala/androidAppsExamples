@@ -4,16 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/positivo"
     android:orientation="vertical">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@android:color/holo_orange_light"
-        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_id"
@@ -21,8 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tv_id"
@@ -32,9 +23,7 @@
             android:text="@string/id"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_id" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -43,10 +32,7 @@
             android:layout_marginTop="11dp"
             android:text="@string/title"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="fill_horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_id" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_body"
@@ -55,9 +41,6 @@
             android:layout_marginTop="11dp"
             android:text="@string/body"
             android:textSize="16sp"
-            android:gravity="fill"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:gravity="fill" />
 
 </LinearLayout>
