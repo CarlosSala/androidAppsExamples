@@ -1,9 +1,13 @@
-package com.example.mvvmarchitectureexample;
+package com.example.mvvmarchitectureexample.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.example.mvvmarchitectureexample.model.Note;
+import com.example.mvvmarchitectureexample.model.NoteDao;
+import com.example.mvvmarchitectureexample.model.NoteDatabase;
 
 import java.util.List;
 

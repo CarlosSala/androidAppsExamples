@@ -1,4 +1,4 @@
-package com.example.mvvmarchitectureexample;
+package com.example.mvvmarchitectureexample.ui;
 
 import android.app.Application;
 
@@ -6,14 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.mvvmarchitectureexample.model.Note;
+import com.example.mvvmarchitectureexample.repository.NoteRepository;
+
 import java.util.List;
 
-public class NoteViewModel extends AndroidViewModel {
+public class MainViewModel extends AndroidViewModel {
 
     private NoteRepository noteRepository;
     private LiveData<List<Note>> allNotes;
 
-    public NoteViewModel(@NonNull Application application) {
+    public MainViewModel(@NonNull Application application) {
         super(application);
 
         noteRepository = new NoteRepository(application);

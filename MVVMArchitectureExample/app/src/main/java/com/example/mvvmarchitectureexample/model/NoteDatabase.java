@@ -1,4 +1,4 @@
-package com.example.mvvmarchitectureexample;
+package com.example.mvvmarchitectureexample.model;
 
 import android.content.Context;
 import android.os.AsyncTask;
