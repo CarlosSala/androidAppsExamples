@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ public class Main10Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main10);
 
         et1 = findViewById(R.id.et_notes);
+        Button btn_save = findViewById(R.id.btn_save);
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity9);
 
         //fileList(); recover files through an array
         String[] files = fileList();
@@ -51,6 +54,9 @@ public class Main10Activity extends AppCompatActivity {
 
             }
         }
+
+        btn_save.setOnClickListener(this::save);
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
    // check to exist memorandum
@@ -81,10 +87,6 @@ public class Main10Activity extends AppCompatActivity {
         startActivity(next);
     }
 
-    /*public void Anterior(View view) {
-        Intent anterior = new Intent(this, Main9Activity.class);
-        startActivity(anterior);
-    }*/
 
     //method back of the toolbar
     @Override

@@ -18,7 +18,8 @@
             android:ems="10"
             android:hint="@string/name"
             android:inputType="textPersonName"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,6 +75,6 @@
     <ListView
         android:id="@+id/lv_datosPersonas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

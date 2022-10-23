@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,8 +19,13 @@ public class Main4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main4);
-
         et1 = findViewById(R.id.et_text);
+
+        Button btn_send = findViewById(R.id.btn_send);
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity4);
+
+        btn_send.setOnClickListener(this::send);
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
     public void send(View view) {
@@ -29,13 +35,8 @@ public class Main4Activity extends AppCompatActivity {
             startActivity(i);
         } else
             Toast.makeText(this, "Empty field!!", Toast.LENGTH_LONG).show();
-
     }
 
-/*    public void Anterior (View view){
-        Intent anterior = new Intent(this, Main3Activity.class);
-        startActivity(anterior);
-    }*/
 
     public void next_activity(View view) {
         Intent next = new Intent(this, Main6Activity.class);

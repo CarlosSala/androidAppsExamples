@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
@@ -18,6 +20,16 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main2);
+
+        ImageButton ib_facebook = findViewById(R.id.imageButton1);
+        ImageButton ib_youtube = findViewById(R.id.imageButton2);
+        Button btn1 = findViewById(R.id.btn_nextActivity2);
+
+        ib_facebook.setOnClickListener(this::facebook);
+
+        ib_youtube.setOnClickListener(this::youtube);
+
+        btn1.setOnClickListener(this::next_activity);
     }
 
     public void facebook(View my_view) {

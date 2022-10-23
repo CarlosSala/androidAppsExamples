@@ -20,27 +20,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
-        android:onClick="save"
         android:text="@string/button_save"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/btn_nextActivity7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:onClick="next_activity"
         android:text="@string/button_next"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button16" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

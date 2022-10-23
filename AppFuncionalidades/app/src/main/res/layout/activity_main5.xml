@@ -19,12 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/btn_nextActivity5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="52dp"
-        android:onClick="next_activity"
         android:text="@string/button_next"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

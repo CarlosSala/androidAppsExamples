@@ -14,12 +14,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/btn_closeWebview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="30dp"
-        android:onClick="close"
         android:text="@string/close"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

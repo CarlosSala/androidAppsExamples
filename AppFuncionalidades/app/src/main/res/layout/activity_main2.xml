@@ -7,13 +7,12 @@
     tools:context=".Main2Activity">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="48dp"
         android:contentDescription="@string/description"
-        android:onClick="facebook"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/face" />
@@ -25,18 +24,16 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="48dp"
         android:contentDescription="@string/description"
-        android:onClick="youtube"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/imageButton1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/youtube" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_nextActivity2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="44dp"
-        android:onClick="next_activity"
         android:text="@string/button_next"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

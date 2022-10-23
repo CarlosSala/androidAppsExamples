@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class Main6Activity extends AppCompatActivity {
@@ -18,6 +19,12 @@ public class Main6Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main6);
 
         et1 = findViewById(R.id.et_url);
+
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity6);
+        Button btn_navigate = findViewById(R.id.btn_navigate);
+
+        btn_navigate.setOnClickListener(this::navigate);
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
     public void navigate(View view) {
@@ -26,10 +33,6 @@ public class Main6Activity extends AppCompatActivity {
         startActivity(i);
     }
 
-    /*public void Regresar(View view){
-        Intent regresar = new Intent(this, Main4Activity.class);
-        startActivity(regresar);
-    }*/
 
     public void next_activity(View view) {
         Intent next = new Intent(this, Main8Activity.class);

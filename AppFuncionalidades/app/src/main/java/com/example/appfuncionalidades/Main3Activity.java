@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class Main3Activity extends AppCompatActivity {
 
-    private EditText mail, password;
+    private EditText et_mail, et_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,29 +20,30 @@ public class Main3Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main3);
 
-        mail = findViewById(R.id.et_mail);
-        password = findViewById(R.id.et_password);
+        et_mail = findViewById(R.id.et_mail);
+        et_password = findViewById(R.id.et_password);
+        Button btn_signIN = findViewById(R.id.btn_signIn);
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity3);
+
+        btn_signIN.setOnClickListener(this::signIn);
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
     public void signIn(View view) {
 
-        if (mail.length() == 0) {
+        if (et_mail.length() == 0) {
             Toast.makeText(this, "Complete with your email", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (password.length() == 0) {
+        if (et_password.length() == 0) {
             Toast.makeText(this, "Complete with your password", Toast.LENGTH_LONG).show();
             return;
         }
-        if (mail.length() != 0 && password.length() != 0) {
+        if (et_mail.length() != 0 && et_password.length() != 0) {
             Toast.makeText(this, "wait one moment...", Toast.LENGTH_SHORT).show();
         }
     }
 
-    /*public void Anterior (View view){
-        Intent anterior = new Intent(this, Main2Activity.class);
-        startActivity(anterior);
-    }*/
 
     public void next_activity(View view) {
         Intent next = new Intent(this, Main4Activity.class);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 public class Main7Activity extends AppCompatActivity {
 
@@ -17,10 +18,13 @@ public class Main7Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main7);
 
         wv1 = findViewById(R.id.wv1);
+        Button btn_closeWebView = findViewById(R.id.btn_closeWebview);
 
         String URL = getIntent().getStringExtra("website");
         wv1.setWebViewClient(new WebViewClient());
-        wv1.loadUrl("http://" + URL);
+        wv1.loadUrl("https://" + URL);
+
+        btn_closeWebView.setOnClickListener(this::close);
     }
 
     public void close(View view) {

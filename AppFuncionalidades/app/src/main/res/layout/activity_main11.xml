@@ -8,27 +8,25 @@
     tools:context=".Main11Activity">
 
     <Button
-        android:id="@+id/button26"
+        android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
-        android:onClick="save"
         android:text="@string/button_save"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_content" />
 
     <Button
-        android:id="@+id/button28"
+        android:id="@+id/btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
-        android:onClick="search"
         android:text="@string/button_search"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/button26"
+        app:layout_constraintStart_toEndOf="@+id/btn_save"
         app:layout_constraintTop_toBottomOf="@+id/et_content" />
 
     <EditText

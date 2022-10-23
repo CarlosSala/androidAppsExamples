@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,10 +28,18 @@ public class Main11Activity extends AppCompatActivity {
 
         et_name = findViewById(R.id.et_file);
         et_content = findViewById(R.id.et_content);
+
+        Button btn_save = findViewById(R.id.btn_save);
+        Button btn_search = findViewById(R.id.btn_search);
+
+        btn_save.setOnClickListener(this::save);
+        btn_search.setOnClickListener(this::search);
+
     }
 
     // save method
     public void save(View view) {
+
         String name = et_name.getText().toString();
         String content = et_content.getText().toString();
 
@@ -47,6 +56,7 @@ public class Main11Activity extends AppCompatActivity {
             //   Toast.makeText(this, "saved successfully", Toast.LENGTH_SHORT).show();
             et_name.setText("");
             et_content.setText("");
+
         } catch (IOException e) {
             Toast.makeText(this, "did not save file", Toast.LENGTH_SHORT).show();
         }
@@ -54,6 +64,7 @@ public class Main11Activity extends AppCompatActivity {
 
     // search method
     public void search(View view) {
+
         String name = et_name.getText().toString();
 
         try {
@@ -77,11 +88,6 @@ public class Main11Activity extends AppCompatActivity {
             Toast.makeText(this, "could not read file", Toast.LENGTH_SHORT).show();
         }
     }
-
-   /* public void Anterior(View view){
-        Intent anterior = new Intent(this, Main10Activity.class);
-        startActivity(anterior);
-    }*/
 
     //method back of the toolbar
     @Override

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Main5Activity extends AppCompatActivity {
@@ -18,17 +19,15 @@ public class Main5Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
 
         tv1 = findViewById(R.id.tv_received);
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity5);
 
         String data = getIntent().getStringExtra("data");
         String text = "Hello " + data;
         tv1.setText(text);
 
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
-   /* public void Regresar(View view){
-        Intent regresar = new Intent(this, Main4Activity.class);
-        startActivity(regresar);
-    }*/
 
     public void next_activity(View view) {
         Intent next = new Intent(this, Main6Activity.class);
