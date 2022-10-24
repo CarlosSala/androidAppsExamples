@@ -21,17 +21,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="0dp"
-        app:zxing_scanner_layout="@layout/zxing_barcode_scanner"></com.journeyapps.barcodescanner.DecoratedBarcodeView>
+        app:zxing_scanner_layout="@layout/zxing_barcode_scanner"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="45dp" />
 
     <Button
-        android:id="@+id/switch_flashlight"
+        android:id="@+id/btn_flashlight"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/transparent_bg_bordered_button"
-        android:onClick="switchFlashlight"
         android:padding="5dp"
         android:text="@string/turn_on_flashlight"
         android:textColor="@color/white"

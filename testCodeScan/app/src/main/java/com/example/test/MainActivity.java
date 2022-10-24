@@ -31,12 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.textView);
 
-        btn_scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customScanner(view);
-            }
-        });
+        btn_scan.setOnClickListener(this::customScanner);
     }
 
     // Get the results:

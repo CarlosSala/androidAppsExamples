@@ -1,21 +1,19 @@
 package com.example.test;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
-import com.journeyapps.barcodescanner.ViewfinderView;
 
 import java.util.Random;
 
@@ -25,7 +23,7 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
-    private Button switchFlashlightButton;
+    private Button btn_FlashlightButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +41,22 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setBackgroundColor(Color.rgb(45,45,45));
 
-        barcodeScannerView = (DecoratedBarcodeView) findViewById(R.id.zxing_barcode_scanner);
+
+        barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
         barcodeScannerView.setTorchListener(this);
 
-        switchFlashlightButton = (Button) findViewById(R.id.switch_flashlight);
+        btn_FlashlightButton = findViewById(R.id.btn_flashlight);
 
-        ViewfinderView viewfinderView = (ViewfinderView) findViewById(R.id.zxing_viewfinder_view);
+        // ViewfinderView viewfinderView = (ViewfinderView) findViewById(R.id.zxing_viewfinder_view);
 
-        Drawable img = this.getResources().getDrawable( R.drawable.ic_flash );
+        Drawable img = ContextCompat.getDrawable(this, R.drawable.ic_flash);
         img.setBounds( 0, 0, 60, 60 );
-        switchFlashlightButton.setCompoundDrawables( img, null, null, null );
+        btn_FlashlightButton.setCompoundDrawables( img, null, null, null );
 
         // if the device does not have flashlight in its camera,
         // then remove the switch flashlight button...
         if (!hasFlash()) {
-            switchFlashlightButton.setVisibility(View.GONE);
+            btn_FlashlightButton.setVisibility(View.GONE);
         }
 
         capture = new CaptureManager(this, barcodeScannerView);
@@ -65,6 +64,13 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
         capture.decode();
 
         changeMaskColor(null);
+
+        btn_FlashlightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchFlashlight(view);
+            }
+        });
     }
 
     @Override
@@ -107,7 +113,7 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
     }
 
     public void switchFlashlight(View view) {
-        if (getString(R.string.turn_on_flashlight).equals(switchFlashlightButton.getText())) {
+        if (getString(R.string.turn_on_flashlight).contentEquals(btn_FlashlightButton.getText())) {
             barcodeScannerView.setTorchOn();
         } else {
             barcodeScannerView.setTorchOff();
@@ -122,22 +128,24 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
 
     @Override
     public void onTorchOn() {
-        switchFlashlightButton.setText(R.string.turn_off_flashlight);
+        btn_FlashlightButton.setText(R.string.turn_off_flashlight);
       //  switchFlashlightButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_flash_off));
-        Drawable img = this.getResources().getDrawable( R.drawable.ic_flash_off );
+        Drawable img = ContextCompat.getDrawable(this, R.drawable.ic_flash_off);
+        //Drawable img = this.getResources().getDrawable( R.drawable.ic_flash_off );
         img.setBounds( 0, 0, 60, 60 );
-        switchFlashlightButton.setCompoundDrawables( img, null, null, null );
+        btn_FlashlightButton.setCompoundDrawables( img, null, null, null );
 
     }
 
     @Override
     public void onTorchOff() {
-        switchFlashlightButton.setText(R.string.turn_on_flashlight);
+        btn_FlashlightButton.setText(R.string.turn_on_flashlight);
 
        // switchFlashlightButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_flash));
-        Drawable img = this.getResources().getDrawable( R.drawable.ic_flash );
+        Drawable img = ContextCompat.getDrawable(this, R.drawable.ic_flash);
+       // Drawable img = this.getResources().getDrawable( R.drawable.ic_flash );
         img.setBounds( 0, 0, 60, 60 );
-        switchFlashlightButton.setCompoundDrawables( img, null, null, null );
+        btn_FlashlightButton.setCompoundDrawables( img, null, null, null );
     }
 
 }
