@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -29,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         rb3 = findViewById(R.id.rb_multi);
         rb4 = findViewById(R.id.rb_division);
         tv1 = findViewById(R.id.tv1);
+
+        Button btn_calculate = findViewById(R.id.btn_calculate);
+        btn_calculate.setOnClickListener(this::Calculate);
+
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity);
+        btn_nextActivity.setOnClickListener(this::next_activity);
     }
 
     // method for calculate

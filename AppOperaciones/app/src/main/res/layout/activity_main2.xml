@@ -43,15 +43,14 @@
         android:text="@string/result"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calulate" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_calulate1" />
 
     <Button
-        android:id="@+id/btn_calulate"
+        android:id="@+id/btn_calulate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:onClick="Calculate"
         android:text="@string/button3"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,12 +79,11 @@
         app:layout_constraintTop_toBottomOf="@+id/cb_suma" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btn_nextActivity1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:onClick="Next_activity"
         android:text="@string/button2"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

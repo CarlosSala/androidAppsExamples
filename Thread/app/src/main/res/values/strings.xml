@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Thread</string>
+    <string name="next">next</string>
+    <string name="thread_2">Thread 2</string>
+    <string name="thread_3">Thread 3</string>
 </resources>

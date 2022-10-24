@@ -2,6 +2,7 @@ package com.example.thread;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,10 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Runnable{
 
     TextView tv1;
-    final Handler handler = new Handler();
+    long suma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +23,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv1 = findViewById(R.id.tv1);
-        Button btn1 = findViewById(R.id.btn1);
+        Button btn_hiloSuma = findViewById(R.id.btn_hiloSuma);
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn_hiloSuma.setOnClickListener(this::hiloSuma);
+
+        btn_nextActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(MainActivity.this, "Boton pulsado", Toast.LENGTH_SHORT).show();
-                myThread();
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
             }
         });
-        // miHilo();
     }
 
+    public void hiloSuma(View view){
 
+        tv1.setText("Calculando el resultado...");
+        Thread hilo = new Thread(this);
+        hilo.start();
+    }
+
+    @Override
+    public void run() {
+
+        // algoritmo que tarda mucho tiempo
+        suma = 0;
+
+        for (long f=1; f<=2000000000; f++){
+            suma+=f;
+        }
+
+        tv1.post(new Runnable() {
+            @Override
+            public void run() {
+                tv1.setText("La suma desde 1 a 2000000000 es: " + suma);
+            }
+        });
+    }
+
+/*
     protected void myThread() {
 
         final Thread thread = new Thread() {
@@ -54,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
                             view1.setTextColor(Color.WHITE);
                             view.setBackgroundResource(R.color.colorPrimaryDark);
                             toast.show();
-
                         }
                     });
 
@@ -84,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
             view1.setTextColor(Color.WHITE);
             view.setBackgroundResource(R.color.colorAccent);
             toast.show();
-
         }
-    };
+    };*/
 }

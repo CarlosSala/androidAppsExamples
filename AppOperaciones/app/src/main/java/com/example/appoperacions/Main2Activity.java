@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,13 @@ public class Main2Activity extends AppCompatActivity {
         cb1 = findViewById(R.id.cb_suma);
         cb2 = findViewById(R.id.cb_resta);
         tv1 = findViewById(R.id.tv1);
+
+        Button btn_calculate = findViewById(R.id.btn_calulate1);
+        btn_calculate.setOnClickListener(this::Calculate);
+
+        Button btn_nextActivity = findViewById(R.id.btn_nextActivity1);
+        btn_nextActivity.setOnClickListener(this::Next_activity);
+
     }
 
     // method for calculate
@@ -45,11 +53,6 @@ public class Main2Activity extends AppCompatActivity {
         }
         tv1.setText(result);
     }
-
-  /*  public void Anterior (View view){
-        Intent anterior = new Intent(this, MainActivity.class);
-        startActivity(anterior);
-    }*/
 
     public void Next_activity(View view) {
         Intent next = new Intent(this, Main3Activity.class);

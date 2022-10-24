@@ -19,6 +19,8 @@ public class DynamicFragmentActivity extends AppCompatActivity {
 
     FragmentTransaction transaction;
 
+    Button btn_fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,9 @@ public class DynamicFragmentActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentRed).commit();
 
+        btn_fragment = findViewById(R.id.linearLayout1);
+
+        btn_fragment.setOnClickListener(this::onClick);
     }
 
     public void onClick(View view) {

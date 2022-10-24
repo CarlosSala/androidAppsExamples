@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,6 +34,10 @@ public class Main3Activity extends AppCompatActivity {
         //R.layout.spinner_item_own path to the spinner in resource folder
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item_own, options);
         sp1.setAdapter(adapter);
+
+        Button btn_calculate = findViewById(R.id.btn_calculate2);
+        btn_calculate.setOnClickListener(this::Calculate);
+
     }
 
     //  method for calculate
@@ -72,11 +77,6 @@ public class Main3Activity extends AppCompatActivity {
         String finalResult = String.valueOf(result);
         tv1.setText(finalResult);
     }
-
-  /*  public void Anterior (View view){
-        Intent anterior = new Intent(this, Main2Activity.class);
-        startActivity(anterior);
-    }*/
 
     //method back of the toolbar
     @Override
