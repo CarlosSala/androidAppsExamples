@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,23 +11,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.examplerecyclerview1.R;
-import com.example.examplerecyclerview1.model.ExampleItem;
+import com.example.examplerecyclerview1.model.Item;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.ExampleViewHolder> {
 
-
-    private Context mContext;
-    private ArrayList<ExampleItem> mExampleItemArrayList;
+    private final Context mContext;
+    private final ArrayList<Item> mItemArrayList;
     private OnItemClickListener mLister;
 
-    public ExampleAdapter(Context context, ArrayList<ExampleItem> exampleItemArrayList) {
+    public AdapterRecyclerView(Context context, ArrayList<Item> itemArrayList) {
 
         mContext = context;
-        mExampleItemArrayList = exampleItemArrayList;
+        mItemArrayList = itemArrayList;
     }
+
+
 
     public interface OnItemClickListener{
 
@@ -39,9 +39,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         mLister = listener;
     }
 
+
     @NonNull
     @Override
-    public ExampleAdapter.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterRecyclerView.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(mContext).inflate(R.layout.example_item, parent, false);
 
@@ -49,21 +50,21 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExampleAdapter.ExampleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterRecyclerView.ExampleViewHolder holder, int position) {
 
-        ExampleItem currentItem = mExampleItemArrayList.get(position);
+        Item currentItem = mItemArrayList.get(position);
 
         holder.tv_creator.setText(currentItem.getmCreator());
+
         int likeCount = currentItem.getmLikes();
         holder.tv_likes.setText("Likes: "+ likeCount);
 
         Picasso.get().load(currentItem.getmImageUrl()).fit().centerInside().into(holder.iv);
-
     }
 
     @Override
     public int getItemCount() {
-        return mExampleItemArrayList.size();
+        return mItemArrayList.size();
     }
 
     public class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -83,7 +84,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                 public void onClick(View view) {
 
                     if(mLister != null){
-                        int position = getAdapterPosition();
+                        int position = getLayoutPosition();
                         if (position != RecyclerView.NO_POSITION){
                             mLister.onItemClick(position);
                         }

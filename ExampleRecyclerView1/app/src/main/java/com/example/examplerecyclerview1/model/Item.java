@@ -1,12 +1,12 @@
 package com.example.examplerecyclerview1.model;
 
-public class ExampleItem {
+public class Item {
 
-    private String mImageUrl;
-    private String mCreator;
-    private int mLikes;
+    private final String mImageUrl;
+    private final String mCreator;
+    private final int mLikes;
 
-    public ExampleItem(String mImageUrl, String mCreator, int mLikes) {
+    public Item(String mImageUrl, String mCreator, int mLikes) {
         this.mImageUrl = mImageUrl;
         this.mCreator = mCreator;
         this.mLikes = mLikes;

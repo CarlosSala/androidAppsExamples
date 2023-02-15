@@ -42,7 +42,7 @@ public class Api1Activity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Api1Activity.this, OldApiActivity.class);
+                Intent intent = new Intent(Api1Activity.this, Api2Activity.class);
                 startActivity(intent);
             }
         });

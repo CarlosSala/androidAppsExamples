@@ -3,7 +3,7 @@ package com.example.retrofittutorial.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseService {
+public class Response {
 
     @SerializedName("id")
     @Expose
@@ -21,7 +21,7 @@ public class ResponseService {
     /**
      * No args constructor for use in serialization
      */
-    public ResponseService() {
+    public Response() {
     }
 
     /**
@@ -30,7 +30,7 @@ public class ResponseService {
      * @param name
      * @param id
      */
-    public ResponseService(int id, String name, String lastName, String nickName) {
+    public Response(int id, String name, String lastName, String nickName) {
         super();
         this.id = id;
         this.name = name;

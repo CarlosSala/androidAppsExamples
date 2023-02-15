@@ -31,7 +31,7 @@ public class ExampleDetailActivity3 extends AppCompatActivity {
 
             tvFecha = findViewById(R.id.fecha);
             tvFecha.setText(mFecha);
-            tvPeso = findViewById(R.id.tv_weight);
+            tvPeso = findViewById(R.id.exampleItem3);
             tvPeso.setText(mPeso);
 
             mainActivity3 = new MainActivity3();

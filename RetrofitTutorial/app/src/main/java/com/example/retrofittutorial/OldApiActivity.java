@@ -16,25 +16,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class OldApiActivity extends AppCompatActivity {
+public class OldApiActivity extends AppCompatActivity implements Runnable{
 
-    TextView sal;
+    TextView tv_sal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_old_api);
 
-        sal = findViewById(R.id.salida);
-
-        Button btn_next = findViewById(R.id.btn_next);
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OldApiActivity.this, Api2Activity.class);
-                startActivity(intent);
-            }
-        });
+        tv_sal = findViewById(R.id.tv_salida);
 
         Button btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +36,23 @@ public class OldApiActivity extends AppCompatActivity {
             }
         });
 
+        tv_sal.setText("trayendo la data...");
+
+
         getData();
     }
 
 
     public void getData() {
+
+
+        Thread hilo = new Thread(this);
+        hilo.start();
+    }
+
+
+    @Override
+    public void run() {
 
 
         // String sql=  "https://api.myjson.com/bins/kmvba";
@@ -80,28 +83,19 @@ public class OldApiActivity extends AppCompatActivity {
                 response.append(inputLine);
             }
 
-            String json = response.toString();
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    String json = response.toString();
+
+                    tv_sal.setText(json);
+                }
+            });
 
 
-/*            JSONArray jsonArr = null;
 
-            JSONObject jsonObject = new JSONObject(json);
-            jsonArr = jsonObject.getJSONArray("projects");
-
-//            jsonArr = new JSONArray(json);
-            String mensaje = "";
-            //for(int i = 0;i<jsonObject.length();i++){
-
-            //   JSONObject jsonObject = jsonArr.getJSONObject(i);
-
-            // Log.d("SLIDA",jo.optString("name"));
-            mensaje += "id " + " " + jsonArr.getString(0) + "\n";
-            //  }
-             sal.setText(mensaje);
-            */
-
-
-            sal.setText(json);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -112,4 +106,4 @@ public class OldApiActivity extends AppCompatActivity {
         }*/
     }
 
-}
+    }

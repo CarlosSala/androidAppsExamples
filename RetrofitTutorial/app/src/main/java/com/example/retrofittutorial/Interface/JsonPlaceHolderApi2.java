@@ -1,6 +1,6 @@
 package com.example.retrofittutorial.Interface;
 
-import com.example.retrofittutorial.models.ResponseService;
+import com.example.retrofittutorial.models.Response;
 import com.example.retrofittutorial.models.Posts;
 
 import java.util.List;
@@ -17,8 +17,8 @@ public interface JsonPlaceHolderApi2 {
     Call<List<Posts>> getPosts();
 
     @GET("usersFake")
-     Call<List<ResponseService>> getUsersFake();
+     Call<List<Response>> getUsersFake();
 
     @POST("usersFake")
-    Call<List<ResponseService>> postUsersFake();
+    Call<List<Response>> postUsersFake();
 }

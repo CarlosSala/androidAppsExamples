@@ -4,25 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Adapter;
 
-import com.example.examplerecyclerview1.adapter.ExampleAdapter;
+import com.example.examplerecyclerview1.adapter.AdapterRecyclerView;
 import com.example.examplerecyclerview1.interfaces.JsonPlaceHolderApi;
-import com.example.examplerecyclerview1.model.ExampleItem;
+import com.example.examplerecyclerview1.model.Item;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterRecyclerView.OnItemClickListener {
 
     public static final String URL = "imageUrl";
     public static final String CREATOR = "creatorName";
@@ -39,13 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView mRecyclerView;
-    private ExampleAdapter mExampleAdapter;
-    private ArrayList<ExampleItem> exampleItemArrayList;
-
+    private AdapterRecyclerView mAdapterRecyclerView;
+    private ArrayList<Item> itemArrayList;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
 
     final String url = "https://pixabay.com/";
-
 
 
     @Override
@@ -58,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        exampleItemArrayList = new ArrayList<>();
+        itemArrayList = new ArrayList<>();
 
         Gson gson = new GsonBuilder().serializeNulls().create();
 
@@ -82,34 +76,31 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
                 if (response.isSuccessful()) {
-                    Log.d(TAG, String.valueOf(response.body()));
-                }
+                   // Log.d(TAG, String.valueOf(response.body()));
 
-                //  Log.d(TAG, String.valueOf(Post));
+                    try {
 
-                try {
+                        JsonArray jArray = response.body().getAsJsonArray("hits");
 
-                    JsonArray jArray = response.body().getAsJsonArray("hits");
+                        for (int i = 0; i < jArray.size(); i++) {
 
-                    for (int i = 0; i < jArray.size(); i++) {
+                            JsonObject hit = (JsonObject) jArray.get(i);
 
-                        JsonObject hit = (JsonObject) jArray.get(i);
+                            String creator = hit.get("user").getAsString();
+                            int likes = hit.get("likes").getAsInt();
+                            String imageUrl = hit.get("webformatURL").getAsString();
 
-                        String creator = hit.get("user").getAsString();
-                        int likes = hit.get("likes").getAsInt();
-                        String imageUrl = hit.get("webformatURL").getAsString();
+                            itemArrayList.add(new Item(imageUrl, creator, likes));
+                        }
 
-                        exampleItemArrayList.add(new ExampleItem(imageUrl, creator, likes));
+                        mAdapterRecyclerView = new AdapterRecyclerView(getApplicationContext(), itemArrayList);
+                        mRecyclerView.setAdapter(mAdapterRecyclerView);
+                        mAdapterRecyclerView.setOnItemClickListener(MainActivity.this);
+
+                    }catch (JsonIOException e){
+                        e.printStackTrace();
                     }
-
-                    mExampleAdapter = new ExampleAdapter(getApplicationContext(), exampleItemArrayList);
-                    mRecyclerView.setAdapter(mExampleAdapter);
-
-                }catch (JsonIOException e){
-                    e.printStackTrace();
                 }
-
-
             }
 
             @Override
@@ -121,4 +112,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        Item clickedItem = itemArrayList.get(position);
+
+        intent.putExtra(URL, clickedItem.getmImageUrl());
+        intent.putExtra(CREATOR, clickedItem.getmCreator());
+        intent.putExtra(LIKES, clickedItem.getmLikes());
+
+        startActivity(intent);
+    }
 }

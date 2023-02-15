@@ -1,9 +1,6 @@
 package com.example.examplerecyclerview1.interfaces;
 
-import com.example.examplerecyclerview1.model.ExampleItem;
 import com.google.gson.JsonObject;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
