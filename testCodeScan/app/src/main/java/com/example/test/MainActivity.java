@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_scan = findViewById(R.id.btn_scan);
         Button btn_next = findViewById(R.id.btn_next);
+
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView tv = findViewById(R.id.textView);
+        // TextView tv = findViewById(R.id.textView);
 
         btn_scan.setOnClickListener(this::customScanner);
     }
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         integrator.setBeepEnabled(true);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.EAN_13);
-        //integrator.setPrompt("Scan a barcode");
+        integrator.setPrompt("Scan a barcode");
         integrator.setCameraId(0);  // Use a specific camera of the device
         integrator.setBarcodeImageEnabled(true);
         integrator.setCaptureActivity(CustomScannerActivity.class);

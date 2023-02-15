@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.example.layouts.DynamicFragmentActivity;
 import com.example.layouts.R;
-import com.example.layouts.ScrollViewActitivy;
+import com.example.layouts.ScrollViewActivity;
 import com.example.layouts.StaticsFragmentsActivity;
 import com.example.layouts.TextInputLayoutActivity;
 
@@ -37,7 +37,7 @@ public class FragmentBlue extends Fragment {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ScrollViewActitivy.class);
+                Intent intent = new Intent(getContext(), DynamicFragmentActivity.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class FragmentBlue extends Fragment {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), StaticsFragmentsActivity.class);
+                Intent intent = new Intent(getContext(), ScrollViewActivity.class);
                 startActivity(intent);
             }
         });

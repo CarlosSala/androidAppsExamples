@@ -20,6 +20,11 @@ public class FrameLayoutActivity extends AppCompatActivity {
 
         iv1 = findViewById(R.id.imageView);
         btn_show = findViewById(R.id.button);
+
+        iv1.setOnClickListener(this::HideImage);
+        btn_show.setOnClickListener(this::Show);
+
+
         Button btn_next = findViewById(R.id.button1);
 
         btn_next.setOnClickListener(new View.OnClickListener() {

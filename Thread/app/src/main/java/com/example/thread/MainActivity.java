@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity implements Runnable{
     @Override
     public void run() {
 
+        /* un calculo grande o cualquier otro proceso que tarde mucho tiempo
+        * podria dejar congelada la interfaz de usuario hasta que este termine,
+        * por ello es buena idea utilizar hilos que corren en paralelo para realizar
+        * estas tareas, hilos que posteriormente pueden unirse el hilo principal y
+        * mostrar el resultado en la interfaz */
+
         // algoritmo que tarda mucho tiempo
         suma = 0;
 
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements Runnable{
             suma+=f;
         }
 
+        // for the tread joins to UI
         tv1.post(new Runnable() {
             @Override
             public void run() {

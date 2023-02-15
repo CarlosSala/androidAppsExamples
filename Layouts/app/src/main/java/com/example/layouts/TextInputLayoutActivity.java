@@ -33,7 +33,6 @@ public class TextInputLayoutActivity extends AppCompatActivity {
         til_cel = findViewById(R.id.til_telefono);
         til_email = findViewById(R.id.til_correo);
 
-
         EditText et_name = findViewById(R.id.campo_nombre);
         EditText et_cel = findViewById(R.id.campo_telefono);
         EditText et_email = findViewById(R.id.campo_correo);
@@ -103,7 +102,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TextInputLayoutActivity.this, StaticsFragmentsActivity.class);
+                Intent intent = new Intent(TextInputLayoutActivity.this, ScrollViewActivity.class);
                 startActivity(intent);
             }
         });
@@ -121,6 +120,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
 
     // check when accept button is press
     private boolean ValidateName(String nombre) {
+
         Pattern patron = Pattern.compile("^[a-zA-Z ]+$");
         if (!patron.matcher(nombre).matches() || nombre.length() > 30) {
             til_name.setError("Nombre inválido");
@@ -134,6 +134,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
 
     // check when accept button is press
     private boolean ValidateCel(String telefono) {
+
         if (!Patterns.PHONE.matcher(telefono).matches()) {
             til_cel.setError("Teléfono inválido");
             return false;
@@ -146,6 +147,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
 
     // check character to character
     private boolean ValidateEmail(String correo) {
+
         if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
             til_email.setError("Correo electrónico inválido");
             return false;
@@ -157,6 +159,7 @@ public class TextInputLayoutActivity extends AppCompatActivity {
     }
 
     private void ValidateData() {
+
         String name = til_name.getEditText().getText().toString();
         String cel = til_cel.getEditText().getText().toString();
         String email = til_email.getEditText().getText().toString();

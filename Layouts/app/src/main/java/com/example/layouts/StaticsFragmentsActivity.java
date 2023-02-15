@@ -14,8 +14,6 @@ import com.example.layouts.fragments.FragmentRed;
 
 public class StaticsFragmentsActivity extends AppCompatActivity {
 
-    Button btn_back, btn_next;
-
     FragmentRed fragmentRed;
     FragmentBlue fragmentBlue;
     FragmentGreen fragmentGreen;
@@ -29,23 +27,5 @@ public class StaticsFragmentsActivity extends AppCompatActivity {
         fragmentBlue = new FragmentBlue();
         fragmentGreen = new FragmentGreen();
 
-        btn_back = findViewById(R.id.btn_back);
-        btn_next = findViewById(R.id.btn_next);
-
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StaticsFragmentsActivity.this.getBaseContext(), DynamicFragmentActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StaticsFragmentsActivity.this.getBaseContext(), TextInputLayoutActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

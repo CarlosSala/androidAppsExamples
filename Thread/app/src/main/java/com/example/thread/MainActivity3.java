@@ -31,6 +31,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         btn_ingresar.setOnClickListener(this::ingresar);
 
+        // se crean 3 runnables, que se ejecutan al inicio, cada uno con su respectivo delay
         manejador.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -53,6 +54,7 @@ public class MainActivity3 extends AppCompatActivity {
         }, 9000);
 
 
+        // se define otro runnable llamado tiempo, que se le pasa al manejador
         tiempo = new Runnable() {
             @Override
             public void run() {
@@ -61,16 +63,20 @@ public class MainActivity3 extends AppCompatActivity {
                     finish();
                 valor--;
                 tv2.setText(String.valueOf(valor));
+                // se ejecuta cada 1 seg el metodo run()
                 manejador.postDelayed(this , 1000);
             }
         };
 
-        manejador.postDelayed(tiempo,0);
+        // se inicia el runable tiempo despues de 5 seg
+       manejador.postDelayed(tiempo,5000);
     }
 
     public void ingresar(View view){
+
         if (et1.getText().toString().equals("123"))
         {
+            // detiene el runnable tiempo
             manejador.removeCallbacks(tiempo);
         }
     }

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ViewModel.iml" filepath="$PROJECT_DIR$/ViewModel.iml" group="ViewModel" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ViewModel/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ViewModel.iml" filepath="$PROJECT_DIR$/.idea/modules/ViewModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ViewModel.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ViewModel.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ViewModel.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ViewModel.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ViewModel.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ViewModel.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ViewModel.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ViewModel.app.unitTest.iml" />
     </modules>
   </component>
 </project>

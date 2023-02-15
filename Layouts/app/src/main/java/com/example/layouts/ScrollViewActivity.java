@@ -2,11 +2,13 @@ package com.example.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class ScrollViewActitivy extends AppCompatActivity {
+public class ScrollViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,9 +16,29 @@ public class ScrollViewActitivy extends AppCompatActivity {
         setContentView(R.layout.activity_scroll_view);
 
         // icono en el action bar
+        // getSupportActionBar().setDisplayShowHomeEnabled(true);
+        // getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        Button btn_next = findViewById(R.id.btn_next);
+        Button btn_back = findViewById(R.id.btn_back);
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ScrollViewActivity.this, StaticsFragmentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ScrollViewActivity.this, TextInputLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void Selection(View view) {

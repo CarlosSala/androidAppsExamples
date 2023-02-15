@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
         android:ems="10"
-        android:inputType="textPassword"
+        android:hint="Escribe 123 y presiona el boton para detener el contador"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

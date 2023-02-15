@@ -14,18 +14,16 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:contentDescription="@string/todo"
-            android:onClick="HideImage"
-            android:src="@mipmap/ic_launcher"
+            android:src="@android:drawable/sym_def_app_icon"
             android:visibility="invisible" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="@string/hidden"
             android:textSize="24sp" />
     </FrameLayout>

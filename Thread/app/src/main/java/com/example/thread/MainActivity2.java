@@ -18,6 +18,7 @@ public class MainActivity2 extends AppCompatActivity implements Runnable{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         tv = findViewById(R.id.tv2);
         Button btn_hilo = findViewById(R.id.btn_hiloSuma2);
         Button btn_nextActivity = findViewById(R.id.btn_nextActivity2);
@@ -52,6 +53,8 @@ public class MainActivity2 extends AppCompatActivity implements Runnable{
         suma = 0;
         for(long f=0; f<=2000000000; f++)
          suma+=f;
+
+        // for the tread joins to UI
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

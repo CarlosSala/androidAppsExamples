@@ -33,11 +33,10 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String codeScanned = getIntent().getExtras().getString("cosa", "hola");
+        String codeScanned = getIntent().getExtras().getString("cosa", "");
 
-       //toolbar.setTitleTextColor(Color.rgb(200,200,200));
+        toolbar.setTitleTextColor(Color.rgb(200,200,200));
         setTitle(codeScanned);
-
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setBackgroundColor(Color.rgb(45,45,45));
 
@@ -104,7 +103,6 @@ public class CustomScannerActivity extends AppCompatActivity implements Decorate
 
     /**
      * Check if the device's camera has a Flashlight.
-     *
      * @return true if there is Flashlight, otherwise false.
      */
     private boolean hasFlash() {

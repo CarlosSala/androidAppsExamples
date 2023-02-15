@@ -1,11 +1,14 @@
 package com.example.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.layouts.fragments.FragmentBlue;
 import com.example.layouts.fragments.FragmentGreen;
@@ -31,10 +34,6 @@ public class DynamicFragmentActivity extends AppCompatActivity {
         fragmentGreen = new FragmentGreen();
 
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentRed).commit();
-
-        btn_fragment = findViewById(R.id.linearLayout1);
-
-        btn_fragment.setOnClickListener(this::onClick);
     }
 
     public void onClick(View view) {
@@ -47,10 +46,10 @@ public class DynamicFragmentActivity extends AppCompatActivity {
                 transaction.replace(R.id.containerFragments, fragmentRed);
                 transaction.addToBackStack(null);
                 break;
+
             case R.id.btn_blue:
                 transaction.replace(R.id.containerFragments, fragmentBlue);
                 transaction.addToBackStack(null);
-
                 break;
 
             case R.id.btn_green:

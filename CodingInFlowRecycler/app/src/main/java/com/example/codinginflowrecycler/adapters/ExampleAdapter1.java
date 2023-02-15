@@ -16,17 +16,21 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+// create recyclerview adapter
 public class ExampleAdapter1 extends RecyclerView.Adapter<ExampleAdapter1.ExampleViewHolder> {
 
     private Context mContext;
     private ArrayList<ExampleItem1> mExampleItem1List;
     private OnItemClickListener mListener;
 
+    // constructor
     public ExampleAdapter1(Context context, ArrayList<ExampleItem1> exampleList) {
+
         mContext = context;
         mExampleItem1List = exampleList;
     }
 
+    // interface or guide
     public interface OnItemClickListener {
         void onItemClick(int position);
     }

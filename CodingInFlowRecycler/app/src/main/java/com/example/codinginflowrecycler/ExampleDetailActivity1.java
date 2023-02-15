@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
-import static com.example.codinginflowrecycler.MainActivity1.EXTRA_CREATOR;
-import static com.example.codinginflowrecycler.MainActivity1.EXTRA_LIKES;
-import static com.example.codinginflowrecycler.MainActivity1.EXTRA_URL;
+import static com.example.codinginflowrecycler.MainActivity1.CREATOR;
+import static com.example.codinginflowrecycler.MainActivity1.LIKES;
+import static com.example.codinginflowrecycler.MainActivity1.URL;
 
 public class ExampleDetailActivity1 extends AppCompatActivity {
 
@@ -21,9 +21,9 @@ public class ExampleDetailActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-        String imageUrl = intent.getStringExtra(EXTRA_URL);
-        String creatorName = intent.getStringExtra(EXTRA_CREATOR);
-        int likeCount = intent.getIntExtra(EXTRA_LIKES, 0);
+        String imageUrl = intent.getStringExtra(URL);
+        String creatorName = intent.getStringExtra(CREATOR);
+        int likeCount = intent.getIntExtra(LIKES, 0);
 
         ImageView imageView = findViewById(R.id.image_view_detail);
         TextView textViewCreator = findViewById(R.id.text_view_creator_detail);

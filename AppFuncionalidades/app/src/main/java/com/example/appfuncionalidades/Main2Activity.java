@@ -73,15 +73,4 @@ public class Main2Activity extends AppCompatActivity {
             }
         }.start();
     }
-
-
-    /*    //method back of the toolbar
-    @Override
-    public boolean onSupportNavigateUp() {
-
-        // onBackPressed();
-        getOnBackPressedDispatcher().onBackPressed();
-
-        return false;
-    }*/
 }

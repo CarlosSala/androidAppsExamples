@@ -8,6 +8,7 @@ public class ExampleItem1 {
     private int mLikes;
 
     public ExampleItem1(String imageUrl, String creator, int likes) {
+
         mImageUrl = imageUrl;
         mCreator = creator;
         mLikes = likes;

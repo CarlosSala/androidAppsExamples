@@ -5,10 +5,10 @@
 
     android:layout_height="match_parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.757"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".ScrollViewActitivy">
+
+    tools:context=".ScrollViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -123,5 +123,19 @@
             android:onClick="Selection"
             app:srcCompat="@drawable/uvas" />
 
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next">
+
+        </Button>
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back">
+
+        </Button>
     </LinearLayout>
 </ScrollView>

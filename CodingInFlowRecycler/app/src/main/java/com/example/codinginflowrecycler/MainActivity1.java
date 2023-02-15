@@ -26,9 +26,9 @@ import java.util.ArrayList;
 
 public class MainActivity1 extends AppCompatActivity implements ExampleAdapter1.OnItemClickListener {
 
-    public static final String EXTRA_URL = "imageUrl";
-    public static final String EXTRA_CREATOR = "creatorName";
-    public static final String EXTRA_LIKES = "likeCount";
+    public static final String URL = "imageUrl";
+    public static final String CREATOR = "creatorName";
+    public static final String LIKES = "likeCount";
 
     private RecyclerView mRecyclerView;
     private ExampleAdapter1 mExampleAdapter1;
@@ -104,9 +104,9 @@ public class MainActivity1 extends AppCompatActivity implements ExampleAdapter1.
         Intent detailIntent = new Intent(this, ExampleDetailActivity1.class);
         ExampleItem1 clickedItem = exampleItem1ArrayList.get(position);
 
-        detailIntent.putExtra(EXTRA_URL, clickedItem.getImageUrl());
-        detailIntent.putExtra(EXTRA_CREATOR, clickedItem.getCreator());
-        detailIntent.putExtra(EXTRA_LIKES, clickedItem.getLikeCount());
+        detailIntent.putExtra(URL, clickedItem.getImageUrl());
+        detailIntent.putExtra(CREATOR, clickedItem.getCreator());
+        detailIntent.putExtra(LIKES, clickedItem.getLikeCount());
 
         startActivity(detailIntent);
     }

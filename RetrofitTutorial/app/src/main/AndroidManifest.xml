@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Api2Activity" />
         <activity android:name=".OldApiActivity" />
-        <activity android:name=".Api1Activity">
+        <activity android:name=".Api1Activity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
