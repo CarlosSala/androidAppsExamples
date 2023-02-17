@@ -17,7 +17,6 @@ import com.example.basededatos.utilities.Utilities;
 public class MainActivity extends AppCompatActivity {
 
     private EditText et_id, et_name, et_cell;
-    private Button btn_register, btn_search, btn_update, btn_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         et_name = findViewById(R.id.et_name);
         et_cell = findViewById(R.id.et_cell);
 
-        btn_register = findViewById(R.id.button1);
-        btn_search = findViewById(R.id.button2);
-        btn_update = findViewById(R.id.button3);
-        btn_delete = findViewById(R.id.button4);
+        Button btn_register = findViewById(R.id.button1);
+        Button btn_search = findViewById(R.id.button2);
+        Button btn_update = findViewById(R.id.button3);
+        Button btn_delete = findViewById(R.id.button4);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         String cell = et_cell.getText().toString();
 
         if (!id.isEmpty() && !name.isEmpty() && !cell.isEmpty()) {
-
 
             // insert into users (id, name, cell) values (123, 'carlos', '454560');
 

@@ -7,7 +7,7 @@ public class Utilities {
     public static final String NAME_FIELD = "name";
     public static final String CELL_FIELD = "cell";
 
-    public static final String CREATE_TABLE_USERS = "CREATE TABLE" + USERS_TABLE + "("
+    public static final String CREATE_TABLE_USERS = "CREATE TABLE " + USERS_TABLE + "("
             + ID_FIELD + " INTEGER, " + NAME_FIELD + " TEXT, " + CELL_FIELD + " TEXT)";
 
 }
