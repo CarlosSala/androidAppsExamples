@@ -1,4 +1,4 @@
-package com.androiddesdecero.viewmodel.ui;
+package com.androiddesdecero.viewmodel.view;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.androiddesdecero.viewmodel.R;
-import com.androiddesdecero.viewmodel.User;
+import com.androiddesdecero.viewmodel.model.User;
 import com.androiddesdecero.viewmodel.viewmodel.LiveDataUserViewModel;
 
 import java.util.List;
@@ -38,6 +38,7 @@ public class LiveDataActivity extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (number == 0) {
                     User user = new User();
                     user.setName("Alberto");
@@ -61,11 +62,11 @@ public class LiveDataActivity extends AppCompatActivity {
         final Observer<List<User>> listObserver = new Observer<List<User>>() {
             @Override
             public void onChanged(@Nullable List<User> userList) {
-                String texto = "";
+                String text = "";
                 for (int i = 0; i < userList.size(); i++) {
-                    texto += userList.get(i).getName() + " " + userList.get(i).getAge() + "\n";
+                    text += userList.get(i).getName() + " " + userList.get(i).getAge() + "\n";
                 }
-                tv_liveData.setText(texto);
+                tv_liveData.setText(text);
             }
         };
 

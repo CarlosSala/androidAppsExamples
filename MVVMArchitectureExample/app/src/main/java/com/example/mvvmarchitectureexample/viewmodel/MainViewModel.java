@@ -1,4 +1,4 @@
-package com.example.mvvmarchitectureexample.ui;
+package com.example.mvvmarchitectureexample.viewmodel;
 
 import android.app.Application;
 
@@ -13,8 +13,8 @@ import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private NoteRepository noteRepository;
-    private LiveData<List<Note>> allNotes;
+    private final NoteRepository noteRepository;
+    private final LiveData<List<Note>> allNotes;
 
     public MainViewModel(@NonNull Application application) {
         super(application);

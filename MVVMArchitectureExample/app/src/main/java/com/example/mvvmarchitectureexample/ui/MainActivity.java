@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mvvmarchitectureexample.model.Note;
 import com.example.mvvmarchitectureexample.model.NoteAdapter;
 import com.example.mvvmarchitectureexample.R;
+import com.example.mvvmarchitectureexample.viewmodel.MainViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID, -1);
 
-            if(id == -1){
+            if (id == -1) {
                 Toast.makeText(this, "Note can not be updated", Toast.LENGTH_SHORT).show();
             }
 
@@ -116,14 +117,13 @@ public class MainActivity extends AppCompatActivity {
             String description = data.getStringExtra(AddEditNoteActivity.EXTRA_DESCRIPTION);
             int priority = data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITY, 1);
 
-            Note note = new Note(title,description,priority);
+            Note note = new Note(title, description, priority);
             note.setId(id);
             mainViewModel.update(note);
             Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(this, "Note not saved", Toast.LENGTH_SHORT).show();
-            return;
         }
     }
 
@@ -138,15 +138,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.delete_all_notes:
-                mainViewModel.deleteAllNotes();
-                Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.delete_all_notes) {
+            mainViewModel.deleteAllNotes();
+            Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
 
     }
 }

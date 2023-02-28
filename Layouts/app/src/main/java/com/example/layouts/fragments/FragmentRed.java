@@ -1,7 +1,5 @@
 package com.example.layouts.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.layouts.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentRed#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentRed extends Fragment {
 
     public FragmentRed() {

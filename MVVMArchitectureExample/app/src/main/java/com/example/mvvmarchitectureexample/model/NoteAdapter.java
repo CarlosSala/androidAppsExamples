@@ -52,10 +52,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
     class NoteHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_title, tv_description, tv_priority;
+        private final TextView tv_title;
+        private final TextView tv_description;
+        private final TextView tv_priority;
 
         public NoteHolder(@NonNull View itemView) {
             super(itemView);
+
             tv_title = itemView.findViewById(R.id.tv_title);
             tv_description = itemView.findViewById(R.id.tv_description);
             tv_priority = itemView.findViewById(R.id.tv_priority);
@@ -63,11 +66,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAdapterPosition();
+                    int position = getAbsoluteAdapterPosition();
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(notes.get(position));
                     }
-
                 }
             });
         }
@@ -75,7 +77,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
     public interface OnItemClickListener {
         void onItemClick(Note note);
-
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

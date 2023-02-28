@@ -2,7 +2,7 @@ package com.androiddesdecero.viewmodel.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.androiddesdecero.viewmodel.User;
+import com.androiddesdecero.viewmodel.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +12,15 @@ public class UserViewModel extends ViewModel {
 
     private List<User> userList;
 
-    public UserViewModel(){
+    public UserViewModel() {
         userList = new ArrayList<>();
     }
 
-    public void addUser(User user){
+    public void addUser(User user) {
         userList.add(user);
     }
 
-    private UserViewModel(List<User> userList){
+    private UserViewModel(List<User> userList) {
         this.userList = userList;
     }
 

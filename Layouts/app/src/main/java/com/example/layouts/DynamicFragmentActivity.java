@@ -19,10 +19,7 @@ public class DynamicFragmentActivity extends AppCompatActivity {
     FragmentRed fragmentRed;
     FragmentBlue fragmentBlue;
     FragmentGreen fragmentGreen;
-
     FragmentTransaction transaction;
-
-    Button btn_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

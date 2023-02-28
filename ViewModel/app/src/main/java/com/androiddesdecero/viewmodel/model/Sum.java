@@ -1,4 +1,4 @@
-package com.androiddesdecero.viewmodel;
+package com.androiddesdecero.viewmodel.model;
 
 /**
  * Created by albertopalomarrobledo on 18/4/18.

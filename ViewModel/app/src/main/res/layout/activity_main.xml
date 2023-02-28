@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.androiddesdecero.viewmodel.ui.MainActivity">
+    android:paddingTop="40dp"
+    android:paddingHorizontal="16dp"
+    tools:context="com.androiddesdecero.viewmodel.view.MainActivity">
 
     <Button
         android:id="@+id/btn_sumActivity"
-        android:text="@string/view_model_sum_activity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/view_model_sum_activity" />
 
     <Button
         android:id="@+id/btn_userActivity"
-        android:text="@string/view_model_user_activity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/view_model_user_activity" />
 
     <Button
         android:id="@+id/btn_liveDataActivity"
-        android:text="@string/live_data_activity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/live_data_activity" />
 
 </LinearLayout>

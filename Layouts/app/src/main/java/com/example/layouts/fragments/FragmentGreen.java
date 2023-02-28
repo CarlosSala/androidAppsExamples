@@ -12,9 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.layouts.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class FragmentGreen extends Fragment {
 
     public FragmentGreen() {

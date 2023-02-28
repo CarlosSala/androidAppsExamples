@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.androiddesdecero.viewmodel.User;
+import com.androiddesdecero.viewmodel.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,4 @@ public class LiveDataUserViewModel extends ViewModel {
         }
         return listMutableLiveData;
     }
-
-
 }

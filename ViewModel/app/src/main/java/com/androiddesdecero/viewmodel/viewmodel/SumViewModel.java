@@ -2,10 +2,6 @@ package com.androiddesdecero.viewmodel.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-/**
- * Created by albertopalomarrobledo on 18/4/18.
- */
-
 public class SumViewModel extends ViewModel {
 
     // result for defect is 0

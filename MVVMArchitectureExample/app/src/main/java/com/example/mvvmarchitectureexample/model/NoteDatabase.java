@@ -13,14 +13,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 public abstract class NoteDatabase extends RoomDatabase {
 
     private static NoteDatabase instance;
-
     public abstract NoteDao noteDao();
 
-    public static synchronized NoteDatabase getInstance(Context context){
+    public static synchronized NoteDatabase getInstance(Context context) {
 
-        if(instance == null){
+        if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    NoteDatabase.class, "note_database")
+                            NoteDatabase.class, "note_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -28,7 +27,7 @@ public abstract class NoteDatabase extends RoomDatabase {
         return instance;
     }
 
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
+    private static final RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
 
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -37,9 +36,9 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
     };
 
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
+    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         public PopulateDbAsyncTask(NoteDatabase db) {
             noteDao = db.noteDao();

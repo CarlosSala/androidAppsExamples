@@ -1,4 +1,4 @@
-package com.androiddesdecero.viewmodel.ui;
+package com.androiddesdecero.viewmodel.view;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.androiddesdecero.viewmodel.R;
-import com.androiddesdecero.viewmodel.Sum;
+import com.androiddesdecero.viewmodel.model.Sum;
 import com.androiddesdecero.viewmodel.viewmodel.SumViewModel;
 
 public class SumActivity extends AppCompatActivity {
@@ -20,17 +20,18 @@ public class SumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sumar);
+        setContentView(R.layout.activity_sum);
 
         tv_sumActivity = findViewById(R.id.tv_sumActivity);
         tv_sumViewModel = findViewById(R.id.tv_sumActivityViewModel);
         Button btn_sum = findViewById(R.id.btn_sum);
 
+        // get viewModel
+        sumViewModel = new ViewModelProvider(this).get(SumViewModel.class);
+
         // number for defect is 0
         tv_sumActivity.setText(" " + number);
 
-        // get viewModel
-        sumViewModel = new ViewModelProvider(this).get(SumViewModel.class);
         tv_sumViewModel.setText(" " + sumViewModel.getResult());
 
         btn_sum.setOnClickListener(new View.OnClickListener() {

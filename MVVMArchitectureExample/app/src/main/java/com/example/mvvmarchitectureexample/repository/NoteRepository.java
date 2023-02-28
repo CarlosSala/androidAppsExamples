@@ -13,8 +13,8 @@ import java.util.List;
 
 public class NoteRepository {
 
-    private NoteDao noteDao;
-    private LiveData<List<Note>> allNotes;
+    private final NoteDao noteDao;
+    private final LiveData<List<Note>> allNotes;
 
     public NoteRepository(Application application) {
         NoteDatabase database = NoteDatabase.getInstance(application);
@@ -44,7 +44,7 @@ public class NoteRepository {
 
     private static class InsertNoteAsyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         private InsertNoteAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -60,7 +60,7 @@ public class NoteRepository {
 
     private static class UpdateNoteAsyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         private UpdateNoteAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -76,7 +76,7 @@ public class NoteRepository {
 
     private static class DeleteNoteAsyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         private DeleteNoteAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -91,7 +91,7 @@ public class NoteRepository {
     }
     private static class DeleteAllNotesAsyncTask extends AsyncTask<Void, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         private DeleteAllNotesAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;

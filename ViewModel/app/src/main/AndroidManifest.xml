@@ -9,16 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.androiddesdecero.viewmodel.ui.MainActivity">
+        <activity
+            android:name="com.androiddesdecero.viewmodel.view.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.androiddesdecero.viewmodel.ui.SumActivity" />
-        <activity android:name="com.androiddesdecero.viewmodel.ui.UserActivity" />
-        <activity android:name="com.androiddesdecero.viewmodel.ui.LiveDataActivity" />
+        <activity android:name="com.androiddesdecero.viewmodel.view.SumActivity" />
+        <activity android:name="com.androiddesdecero.viewmodel.view.UserActivity" />
+        <activity android:name="com.androiddesdecero.viewmodel.view.LiveDataActivity" />
     </application>
 
 </manifest>

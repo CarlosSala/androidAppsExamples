@@ -21,9 +21,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragRed"
             android:name="com.example.layouts.fragments.FragmentRed"
             android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             android:layout_weight="1"
             tools:layout="@layout/fragment_red" />
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragGreen"
             android:name="com.example.layouts.fragments.FragmentGreen"
             android:layout_width="match_parent"
@@ -40,7 +41,7 @@
             tools:layout="@layout/fragment_green" />
     </LinearLayout>
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragBlue"
         android:name="com.example.layouts.fragments.FragmentBlue"
         android:layout_width="match_parent"

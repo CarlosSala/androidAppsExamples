@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">viewModel</string>
-    <string name="view_model_sum_activity">View Model Sum Activity</string>
-    <string name="view_model_user_activity">View Model User Activity</string>
+    <string name="view_model_sum_activity">Sum Activity</string>
+    <string name="view_model_user_activity">User Activity</string>
     <string name="live_data_activity">Live Data Activity</string>
     <string name="sum">Sum</string>
     <string name="name">Name</string>

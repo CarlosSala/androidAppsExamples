@@ -71,7 +71,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
         data.putExtra(EXTRA_PRIORITY, priority);
 
         int id = getIntent().getIntExtra(EXTRA_ID, 1);
-        if(id != -1){
+        if (id != -1) {
             data.putExtra(EXTRA_ID, id);
         }
 
@@ -90,15 +90,11 @@ public class AddEditNoteActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.save_note:
-
-                saveNote();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.save_note) {
+            saveNote();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
 
     }
 }

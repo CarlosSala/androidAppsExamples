@@ -1,4 +1,4 @@
-package com.androiddesdecero.viewmodel.ui;
+package com.androiddesdecero.viewmodel.view;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.androiddesdecero.viewmodel.R;
-import com.androiddesdecero.viewmodel.User;
+import com.androiddesdecero.viewmodel.model.User;
 import com.androiddesdecero.viewmodel.viewmodel.UserViewModel;
 
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ public class UserActivity extends AppCompatActivity {
 
     private EditText et_name, et_age;
     private TextView tv_user, tv_userViewModel;
-
     private List<User> userList;
     private UserViewModel userViewModel;
 
@@ -38,7 +37,6 @@ public class UserActivity extends AppCompatActivity {
 
         tv_user = findViewById(R.id.tv_userActivity);
         tv_userViewModel = findViewById(R.id.tv_userActivityViewModel);
-
         et_name = findViewById(R.id.et_name);
         et_age = findViewById(R.id.et_age);
 
@@ -46,6 +44,7 @@ public class UserActivity extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 User user = new User();
                 user.setAge(et_age.getText().toString());
                 user.setName(et_name.getText().toString());
@@ -58,16 +57,18 @@ public class UserActivity extends AppCompatActivity {
         btn_see.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text = "";
+
+                StringBuilder text = new StringBuilder();
                 for (int i = 0; i < userList.size(); i++) {
-                    text += userList.get(i).getName() + " " + userList.get(i).getAge() + "\n";
+                    text.append(userList.get(i).getName()).append(" ").append(userList.get(i).getAge()).append("\n");
                 }
-                tv_user.setText(text);
-                text = "";
+                tv_user.setText(text.toString());
+
+                text = new StringBuilder();
                 for (User user : userViewModel.getUserList()) {
-                    text += user.getName() + " " + user.getAge() + "\n";
+                    text.append(user.getName()).append(" ").append(user.getAge()).append("\n");
                 }
-                tv_userViewModel.setText(text);
+                tv_userViewModel.setText(text.toString());
             }
         });
     }

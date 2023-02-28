@@ -1,5 +1,6 @@
 package com.example.layouts.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,10 +17,12 @@ import com.example.layouts.ScrollViewActivity;
 import com.example.layouts.StaticsFragmentsActivity;
 import com.example.layouts.TextInputLayoutActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import java.util.Objects;
+
+
 public class FragmentBlue extends Fragment {
+
+    Button btn_next;
 
     public FragmentBlue() {
         // Required empty public constructor
@@ -31,8 +34,15 @@ public class FragmentBlue extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_blue, container, false);
 
-        Button btn_back = vista.findViewById(R.id.btn_back);
-        Button btn_next = vista.findViewById(R.id.btn_next);
+        btn_next = vista.findViewById(R.id.btn_next);
+
+        // String activityActual = requireActivity().toString();
+
+        String current_activity = requireActivity().toString().substring(0, 43);
+
+        if (current_activity.equals("com.example.layouts.DynamicFragmentActivity")) {
+            hidde_btn_next(getView());
+        }
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,14 +52,13 @@ public class FragmentBlue extends Fragment {
             }
         });
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ScrollViewActivity.class);
-                startActivity(intent);
-            }
-        });
-
         return vista;
     }
+
+    public void hidde_btn_next(View view) {
+
+        btn_next.setVisibility(View.INVISIBLE);
+    }
+
+
 }

@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.androiddesdecero.viewmodel.ui.SumActivity">
+    android:paddingHorizontal="16dp"
+    android:paddingTop="40dp"
+    tools:context="com.androiddesdecero.viewmodel.view.SumActivity">
 
     <Button
         android:id="@+id/btn_sum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name" />
+        android:text="@string/sum" />
 
     <TextView
         android:id="@+id/tv_sumActivity"
@@ -21,6 +23,5 @@
         android:id="@+id/tv_sumActivityViewModel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
 </LinearLayout>
