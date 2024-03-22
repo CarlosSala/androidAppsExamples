@@ -1,35 +1,32 @@
 package com.example.appfuncionalidades;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import com.example.appfuncionalidades.databinding.ActivityMain6Binding;
 
 public class Main6Activity extends AppCompatActivity {
 
-    private EditText et1;
+    private ActivityMain6Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main6);
 
-        et1 = findViewById(R.id.et_url);
+        binding = ActivityMain6Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        Button btn_nextActivity = findViewById(R.id.btn_nextActivity6);
-        Button btn_navigate = findViewById(R.id.btn_navigate);
-
-        btn_navigate.setOnClickListener(this::navigate);
-        btn_nextActivity.setOnClickListener(this::next_activity);
+        binding.btnNavigate.setOnClickListener(this::navigate);
+        binding.btnNextActivity6.setOnClickListener(this::next_activity);
     }
 
     public void navigate(View view) {
         Intent i = new Intent(this, Main7Activity.class);
-        i.putExtra("website", et1.getText().toString());
+        i.putExtra("website", binding.etUrl.getText().toString());
         startActivity(i);
     }
 

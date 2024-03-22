@@ -1,37 +1,36 @@
 package com.example.appfuncionalidades;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import com.example.appfuncionalidades.databinding.ActivityMain4Binding;
 
 public class Main4Activity extends AppCompatActivity {
 
-    private EditText et1;
+    private ActivityMain4Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main4);
-        et1 = findViewById(R.id.et_text);
+        binding = ActivityMain4Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        Button btn_send = findViewById(R.id.btn_send);
-        Button btn_nextActivity = findViewById(R.id.btn_nextActivity4);
-
-        btn_send.setOnClickListener(this::send);
-        btn_nextActivity.setOnClickListener(this::next_activity);
+        binding.btnSend.setOnClickListener(this::send);
+        binding.btnNextActivity4.setOnClickListener(this::next_activity);
     }
 
     public void send(View view) {
-        if (et1.length() > 0) {
+
+        if (binding.etText.length() > 0) {
+
             Intent i = new Intent(this, Main5Activity.class);
-            i.putExtra("data", et1.getText().toString());
+            i.putExtra("data", binding.etText.getText().toString());
             startActivity(i);
         } else
             Toast.makeText(this, "Empty field!!", Toast.LENGTH_LONG).show();

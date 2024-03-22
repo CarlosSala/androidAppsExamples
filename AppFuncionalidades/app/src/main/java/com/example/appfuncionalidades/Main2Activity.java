@@ -1,15 +1,14 @@
 package com.example.appfuncionalidades;
 
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.appfuncionalidades.databinding.ActivityMain2Binding;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -19,17 +18,15 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main2);
+       ActivityMain2Binding binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        ImageButton ib_facebook = findViewById(R.id.imageButton1);
-        ImageButton ib_youtube = findViewById(R.id.imageButton2);
-        Button btn1 = findViewById(R.id.btn_nextActivity2);
+        binding.imageButton1.setOnClickListener(this::facebook);
 
-        ib_facebook.setOnClickListener(this::facebook);
+        binding.imageButton2.setOnClickListener(this::youtube);
 
-        ib_youtube.setOnClickListener(this::youtube);
-
-        btn1.setOnClickListener(this::next_activity);
+        binding.btnNextActivity2.setOnClickListener(this::next_activity);
     }
 
     public void facebook(View my_view) {
@@ -53,13 +50,13 @@ public class Main2Activity extends AppCompatActivity {
     public void onBackPressed() {
 
         if (count == 0) {
-            Toast.makeText(getApplicationContext(), "Presione de nuevo para regresar", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Press again to back", Toast.LENGTH_LONG).show();
             count++;
         } else {
             super.onBackPressed();
         }
 
-        new CountDownTimer(3000, 1000){
+        new CountDownTimer(3000, 1000) {
 
             // every time that pass 1000 ms does any action
             @Override

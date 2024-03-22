@@ -3,43 +3,39 @@ package com.example.appfuncionalidades;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import com.example.appfuncionalidades.databinding.ActivityMain9Binding;
 
 public class Main9Activity extends AppCompatActivity {
 
-    private EditText et_name, et_data;
+    private ActivityMain9Binding binding;
     private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main9);
 
-        et_name = findViewById(R.id.et_contact_name);
-        et_data = findViewById(R.id.et_data);
-        Button btn_save = findViewById(R.id.btn_save);
-        Button btn_search = findViewById(R.id.btn_search);
-        Button btn_nextActivity = findViewById(R.id.btn_nextActivity8);
+        binding = ActivityMain9Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         preferences = getSharedPreferences("schedule", Context.MODE_PRIVATE);
 
-        btn_save.setOnClickListener(this::save);
-        btn_search.setOnClickListener(this::search);
-        btn_nextActivity.setOnClickListener(this::next_activity);
+        binding.btnSave.setOnClickListener(this::save);
+        binding.btnSearch.setOnClickListener(this::search);
+        binding.btnNextActivity8.setOnClickListener(this::next_activity);
     }
 
     // save method
     public void save(View view) {
 
-        String name = et_name.getText().toString();
-        String data = et_data.getText().toString();
+        String name = binding.etContactName.getText().toString();
+        String data = binding.etData.getText().toString();
 
         SharedPreferences.Editor obj_editor = preferences.edit();
         obj_editor.putString(name, data);
@@ -47,20 +43,20 @@ public class Main9Activity extends AppCompatActivity {
 
         Toast.makeText(this, "contact saved", Toast.LENGTH_SHORT).show();
 
-        et_name.setText("");
-        et_data.setText("");
+        binding.etContactName.setText("");
+        binding.etData.setText("");
     }
 
     // search method
     public void search(View view) {
 
-        String name = et_name.getText().toString();
+        String name = binding.etContactName.getText().toString();
         String data = preferences.getString(name, "");
 
-        if (data.length() == 0) {
+        if (data.isEmpty()) {
             Toast.makeText(this, "contact not found", Toast.LENGTH_SHORT).show();
         } else {
-            et_data.setText(data);
+            binding.etData.setText(data);
         }
     }
 

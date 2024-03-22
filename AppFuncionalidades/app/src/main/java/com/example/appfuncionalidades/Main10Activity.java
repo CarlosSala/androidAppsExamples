@@ -3,13 +3,12 @@ package com.example.appfuncionalidades;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import com.example.appfuncionalidades.databinding.ActivityMain10Binding;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,50 +16,50 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main10Activity extends AppCompatActivity {
-
-    private EditText et1;
+    private ActivityMain10Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main10);
-
-        et1 = findViewById(R.id.et_notes);
-        Button btn_save = findViewById(R.id.btn_save);
-        Button btn_nextActivity = findViewById(R.id.btn_nextActivity9);
+        binding = ActivityMain10Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         //fileList(); recover files through an array
         String[] files = fileList();
 
         // read memorandum
         if (fileExists(files)) {
+
             try {
+
                 InputStreamReader file = new InputStreamReader(openFileInput("memorandum.txt"));
                 BufferedReader br = new BufferedReader(file);
                 // check file is not empty
                 String line = br.readLine();
-                String WholeSchedule = "";
+                StringBuilder myDocument = new StringBuilder();
 
                 while (line != null) {
-                    WholeSchedule = WholeSchedule.concat(line + "\n");
+                    myDocument.append(line).append("\n");
                     line = br.readLine();
                 }
                 br.close();
                 file.close();
-                et1.setText(WholeSchedule);
+                binding.etNotes.setText(myDocument.toString());
 
             } catch (IOException e) {
 
             }
         }
 
-        btn_save.setOnClickListener(this::save);
-        btn_nextActivity.setOnClickListener(this::next_activity);
+        binding.btnSave.setOnClickListener(this::save);
+        binding.btnNextActivity9.setOnClickListener(this::next_activity);
     }
 
-   // check to exist memorandum
+    // check to exist memorandum
     private boolean fileExists(String[] files) {
+
         for (String file : files)
             if ("memorandum.txt".equals(file))
                 return true;
@@ -72,7 +71,7 @@ public class Main10Activity extends AppCompatActivity {
 
         try {
             OutputStreamWriter file = new OutputStreamWriter(openFileOutput("memorandum.txt", Activity.MODE_PRIVATE));
-            file.write(et1.getText().toString());
+            file.write(binding.etNotes.getText().toString());
             file.flush();
             file.close();
         } catch (IOException e) {

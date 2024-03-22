@@ -1,31 +1,28 @@
 package com.example.appfuncionalidades;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import com.example.appfuncionalidades.databinding.ActivityMain5Binding;
 
 public class Main5Activity extends AppCompatActivity {
-
-    public TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
 
-        tv1 = findViewById(R.id.tv_received);
-        Button btn_nextActivity = findViewById(R.id.btn_nextActivity5);
+        ActivityMain5Binding binding = ActivityMain5Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         String data = getIntent().getStringExtra("data");
         String text = "Hello " + data;
-        tv1.setText(text);
+        binding.tvReceived.setText(text);
 
-        btn_nextActivity.setOnClickListener(this::next_activity);
+        binding.btnNextActivity5.setOnClickListener(this::next_activity);
     }
 
 

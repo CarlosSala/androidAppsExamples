@@ -1,13 +1,11 @@
 <resources>
-    <string name="app_name">AppOperaciones</string>
+    <string name="app_name">OperationsJava</string>
     <string name="value1">First value</string>
     <string name="value2">Second value</string>
-    <string name="button1">Add</string>
     <string name="result">Result</string>
     <string name="button2">Next Activity</string>
 
     <string name="button3">Calculate</string>
-    <string name="button4">Regresar</string>
 
     <string name="rb_add">Add</string>
     <string name="rb_rest">Rest</string>
